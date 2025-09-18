@@ -112,20 +112,6 @@ class Reservation(ReservationBase):
     status: Literal["waiting", "available", "cancelled", "fulfilled"] = "waiting"
     notified_at: Optional[datetime] = None
 
-# Auth Models
-class Token(BaseModel):
-    access_token: str
-    token_type: str = "bearer"
-    expires_in: int
-    user: User
-
-class TokenData(BaseModel):
-    username: Optional[str] = None
-
-class LoginRequest(BaseModel):
-    username: str
-    password: str
-
 # Response Models
 class UserResponse(BaseModel):
     id: str
@@ -137,6 +123,20 @@ class UserResponse(BaseModel):
     phone: Optional[str]
     active: bool
     created_at: datetime
+
+# Auth Models
+class Token(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
+    expires_in: int
+    user: UserResponse
+
+class TokenData(BaseModel):
+    username: Optional[str] = None
+
+class LoginRequest(BaseModel):
+    username: str
+    password: str
 
 class BookResponse(BaseModel):
     id: str
