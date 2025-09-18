@@ -133,7 +133,7 @@ class LibraryAPITester:
         
         # Test GET /books (should work for all authenticated users)
         for role, token in self.tokens.items():
-            success, response = self.make_request("GET", "/books", token=token)
+            success, response = self.make_request("GET", "/books/", token=token)
             
             if not success:
                 self.log_result(f"Books List - {role}", False, f"Request failed: {response}")
@@ -153,7 +153,7 @@ class LibraryAPITester:
 
         # Test book search functionality
         if "admin" in self.tokens:
-            success, response = self.make_request("GET", "/books", token=self.tokens["admin"], params={"search": "Python"})
+            success, response = self.make_request("GET", "/books/", token=self.tokens["admin"], params={"search": "Python"})
             
             if success and response.status_code == 200:
                 self.log_result("Books Search", True, "Search functionality working")
@@ -176,7 +176,7 @@ class LibraryAPITester:
 
         # Test with admin (should succeed)
         if "admin" in self.tokens:
-            success, response = self.make_request("POST", "/books", token=self.tokens["admin"], data=test_book)
+            success, response = self.make_request("POST", "/books/", token=self.tokens["admin"], data=test_book)
             
             if not success:
                 self.log_result("Books Create - Admin", False, f"Request failed: {response}")
