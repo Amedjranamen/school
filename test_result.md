@@ -234,13 +234,13 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Authentication JWT + User Roles System"
-    - "MongoDB Models (Users, Books, Loans, Reservations)"
+    - "Authentication JWT + User Roles System"  
     - "Books CRUD API Endpoints"
+    - "Loans/Returns API Endpoints"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
 
 agent_communication:
     - agent: "main"
-      message: "Starting MVP implementation with JWT auth, book management, and loans system. Phase 1: Backend models and authentication."
+      message: "Backend MVP completed: JWT auth, user roles, books CRUD, loans system, demo data created. All high-priority backend tasks ready for testing. Test accounts: admin/admin123, bibliothecaire/biblio123, prof_martin/prof123, eleve_sophie/eleve123. Need to test all API endpoints before moving to frontend."
