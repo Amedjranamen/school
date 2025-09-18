@@ -106,52 +106,64 @@ user_problem_statement: "Création d'un système complet de gestion de biblioth�
 
 backend:
   - task: "Authentication JWT + User Roles System"
-    implemented: false
+    implemented: true
     working: "NA"
     file: "backend/auth.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
         - working: "NA"
           agent: "main"
-          comment: "Starting implementation of JWT auth with 4 roles: admin, librarian, teacher, student"
+          comment: "Implemented JWT auth with 4 roles, password hashing, role-based permissions. Ready for testing."
 
   - task: "MongoDB Models (Users, Books, Loans, Reservations)"
-    implemented: false
+    implemented: true
     working: "NA"
     file: "backend/models.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
         - working: "NA"
           agent: "main"
-          comment: "Need to create Pydantic models for all entities"
+          comment: "Created comprehensive Pydantic models for all entities with validation. Ready for testing."
 
   - task: "Books CRUD API Endpoints"
-    implemented: false
+    implemented: true
     working: "NA"
     file: "backend/routes/books.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
         - working: "NA"
           agent: "main"
-          comment: "CRUD operations for book catalog management"
+          comment: "Complete CRUD for books with search, filtering, role-based access. Ready for testing."
 
   - task: "Loans/Returns API Endpoints"
-    implemented: false
+    implemented: true
     working: "NA"
     file: "backend/routes/loans.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
         - working: "NA"
           agent: "main"
-          comment: "Loan creation, return processing, overdue handling"
+          comment: "Loan creation, return processing, overdue handling, fine calculation. Ready for testing."
+
+  - task: "Demo Data Creation"
+    implemented: true
+    working: true
+    file: "backend/seed_data.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Successfully created 5 users (admin, librarian, teacher, 2 students) and 8 books with diverse content."
 
   - task: "Users Management API"
     implemented: false
