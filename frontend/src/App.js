@@ -46,28 +46,19 @@ function App() {
               
               <Route path="users" element={
                 <ProtectedRoute requireRole="librarian">
-                  <div className="text-center py-12">
-                    <h2 className="text-2xl font-bold mb-4">Gestion des Utilisateurs</h2>
-                    <p className="text-muted-foreground">Page en développement</p>
-                  </div>
+                  <Users />
                 </ProtectedRoute>
               } />
               
               <Route path="statistics" element={
                 <ProtectedRoute requireRole="librarian">
-                  <div className="text-center py-12">
-                    <h2 className="text-2xl font-bold mb-4">Statistiques</h2>
-                    <p className="text-muted-foreground">Page en développement</p>
-                  </div>
+                  <Statistics />
                 </ProtectedRoute>
               } />
               
               <Route path="admin" element={
                 <ProtectedRoute requireRole="admin">
-                  <div className="text-center py-12">
-                    <h2 className="text-2xl font-bold mb-4">Administration</h2>
-                    <p className="text-muted-foreground">Page en développement</p>
-                  </div>
+                  <Admin />
                 </ProtectedRoute>
               } />
             </Route>
