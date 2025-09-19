@@ -203,8 +203,8 @@ backend:
     working: false
     file: "backend/routes/reports.py"
     stuck_count: 1
-    priority: "medium"
-    needs_retesting: false
+    priority: "high"
+    needs_retesting: true
     status_history:
         - working: "NA"
           agent: "main"
@@ -212,6 +212,9 @@ backend:
         - working: false
           agent: "testing"
           comment: "❌ REPORTS APIs PARTIALLY WORKING: Dashboard stats endpoint working correctly (GET /reports/dashboard-stats), loans report working (GET /reports/loans-report). However, books report and users report endpoints returning HTTP 500 Internal Server Error. Role-based permissions correctly enforced for all endpoints. Core dashboard functionality operational but detailed reports need debugging."
+        - working: "NA"
+          agent: "main"
+          comment: "DEBUGGING: Investigating HTTP 500 errors on books-report and users-report endpoints. Analyzing MongoDB aggregation pipelines for potential issues."
 
   - task: "Import/Export CSV API"
     implemented: true
