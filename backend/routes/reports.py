@@ -215,6 +215,9 @@ async def get_loans_report(
     
     loans_report = await loans_collection.aggregate(pipeline).to_list(None)
     
+    # Convert ObjectIds to strings for JSON serialization
+    loans_report = convert_objectid_to_str(loans_report)
+    
     # Calculate summary statistics
     total_loans = len(loans_report)
     total_fines = sum(loan.get("fine", 0) for loan in loans_report)
