@@ -454,11 +454,11 @@ class LibraryAPITester:
                             
                             # Create first loan
                             loan_data = {"user_id": user_id, "book_id": book_id, "due_days": 14}
-                            success, response = self.make_request("POST", "/loans", token=self.tokens["admin"], data=loan_data)
+                            success, response = self.make_request("POST", "/loans/", token=self.tokens["admin"], data=loan_data)
                             
                             if success and response.status_code == 200:
                                 # Try to create second loan for same book
-                                success2, response2 = self.make_request("POST", "/loans", token=self.tokens["admin"], data=loan_data)
+                                success2, response2 = self.make_request("POST", "/loans/", token=self.tokens["admin"], data=loan_data)
                                 
                                 if success2 and response2.status_code == 400:
                                     self.log_result("Business Rule - Duplicate Loan Prevention", True, "Correctly prevented duplicate loan")
