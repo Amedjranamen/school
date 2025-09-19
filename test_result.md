@@ -366,15 +366,12 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Users Management Interface"
-    - "Statistics and Reports Interface" 
-    - "Admin Import/Export Interface"
+    - "Reports and Statistics API"
     - "Enhanced UI and Modern Design"
-    - "Frontend Demo Accounts Display Fix"
   stuck_tasks: 
     - "Reports and Statistics API"
   test_all: false
-  test_priority: "high_first"
+  test_priority: "stuck_first"
 
 agent_communication:
     - agent: "main"
