@@ -66,6 +66,9 @@ async def get_status_checks():
 api_router.include_router(auth_router)
 api_router.include_router(books_router)
 api_router.include_router(loans_router)
+api_router.include_router(users_router)
+api_router.include_router(reports_router)
+api_router.include_router(import_export_router)
 
 # Include the main router in the app
 app.include_router(api_router)
