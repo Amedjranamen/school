@@ -6,7 +6,7 @@ import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Alert, AlertDescription } from '../components/ui/alert';
-import { Library, Eye, EyeOff, AlertCircle, Users, BookOpen, Shield } from 'lucide-react';
+import { Library, Eye, EyeOff, AlertCircle, Users, BookOpen, Shield, BookMarked } from 'lucide-react';
 
 const Login = () => {
   const [email, setEmail] = useState('');
