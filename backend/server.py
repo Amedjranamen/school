@@ -14,6 +14,9 @@ from datetime import datetime
 from routes.auth import router as auth_router
 from routes.books import router as books_router
 from routes.loans import router as loans_router
+from routes.users import router as users_router
+from routes.reports import router as reports_router
+from routes.import_export import router as import_export_router
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
