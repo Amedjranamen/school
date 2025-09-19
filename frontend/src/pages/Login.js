@@ -202,7 +202,7 @@ const Login = () => {
                       </p>
                       <div className="text-xs text-gray-500 space-y-1">
                         <div className="font-mono bg-gray-100 px-2 py-1 rounded">
-                          📧 {account.email}
+                          👤 {account.username}
                         </div>
                         <div className="font-mono bg-gray-100 px-2 py-1 rounded">
                           🔑 {account.password}
