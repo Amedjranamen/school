@@ -327,11 +327,10 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Frontend Authentication System"
-    - "Frontend Books Management Interface" 
-    - "Frontend Loans Management Interface"
-    - "Dashboard with Role-based Interface"
-    - "Responsive Layout and Navigation"
+    - "Users Management Interface"
+    - "Statistics and Reports Interface" 
+    - "Admin Import/Export Interface"
+    - "Enhanced UI and Modern Design"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
