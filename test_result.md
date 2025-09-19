@@ -200,11 +200,11 @@ backend:
 
   - task: "Reports and Statistics API"
     implemented: true
-    working: false
+    working: true
     file: "backend/routes/reports.py"
-    stuck_count: 1
+    stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: "NA"
           agent: "main"
@@ -215,6 +215,9 @@ backend:
         - working: "NA"
           agent: "main"
           comment: "DEBUGGING: Investigating HTTP 500 errors on books-report and users-report endpoints. Analyzing MongoDB aggregation pipelines for potential issues."
+        - working: true
+          agent: "testing"
+          comment: "✅ REPORTS APIs FULLY FIXED: Root cause identified and resolved - MongoDB ObjectId serialization error in aggregation pipelines. Added convert_objectid_to_str() function to handle ObjectId to string conversion for JSON serialization. All 4 report endpoints now working perfectly: GET /reports/dashboard-stats (✅), GET /reports/loans-report (✅), GET /reports/books-report (✅), GET /reports/users-report (✅). Role-based permissions correctly enforced. Books report returns detailed statistics with 8 books and 17 categories. Users report returns comprehensive user analytics with 5 users across 4 roles. System now 100% functional for reporting requirements."
 
   - task: "Import/Export CSV API"
     implemented: true
