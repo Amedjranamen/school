@@ -98,7 +98,7 @@ const Books = () => {
         
         <CardHeader className="flex-1">
           <CardTitle className="text-lg line-clamp-2">{book.title}</CardTitle>
-          <CardDescription className="space-y-2">
+          <div className="space-y-2 text-sm text-muted-foreground">
             <div className="flex items-center text-sm">
               <User className="h-4 w-4 mr-1" />
               {book.authors?.join(', ') || 'Auteur inconnu'}
@@ -135,7 +135,7 @@ const Books = () => {
                 )}
               </div>
             )}
-          </CardDescription>
+          </div>
         </CardHeader>
 
         <CardContent className="pt-0">
