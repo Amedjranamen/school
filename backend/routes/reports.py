@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, Query
 from typing import List, Optional
 from datetime import datetime, timedelta
-from ..auth import get_current_user, require_role
-from ..models import User
-from ..database import books_collection, loans_collection, users_collection
+from auth import get_current_user, require_role
+from models import User
+from database import books_collection, loans_collection, users_collection
 from bson import ObjectId
 
 router = APIRouter(prefix="/api/reports", tags=["reports"])
