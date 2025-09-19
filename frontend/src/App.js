@@ -10,6 +10,9 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Books from "./pages/Books";
 import MyLoans from "./pages/MyLoans";
+import Users from "./pages/Users";
+import Statistics from "./pages/Statistics";
+import Admin from "./pages/Admin";
 
 function App() {
   return (
