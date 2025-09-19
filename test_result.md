@@ -198,6 +198,36 @@ backend:
           agent: "testing"
           comment: "✅ USER MANAGEMENT APIs WORKING: Comprehensive testing completed with 89.7% success rate. Core functionality verified: GET /users/ (list with pagination), GET /users/stats (statistics), POST /users/ (admin-only creation), GET /users/{id} (retrieve by ID), PUT /users/{id} (admin-only updates), POST /users/bulk-import (bulk creation). Role-based permissions correctly enforced. Minor: One test failed on user ID retrieval but core CRUD operations functional."
 
+  - task: "Reports and Statistics API"
+    implemented: true
+    working: false
+    file: "backend/routes/reports.py"
+    stuck_count: 1
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Comprehensive reporting system with dashboard stats, loans/books/users reports, filtering, export capabilities."
+        - working: false
+          agent: "testing"
+          comment: "❌ REPORTS APIs PARTIALLY WORKING: Dashboard stats endpoint working correctly (GET /reports/dashboard-stats), loans report working (GET /reports/loans-report). However, books report and users report endpoints returning HTTP 500 Internal Server Error. Role-based permissions correctly enforced for all endpoints. Core dashboard functionality operational but detailed reports need debugging."
+
+  - task: "Import/Export CSV API"
+    implemented: true
+    working: true
+    file: "backend/routes/import_export.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Complete CSV import/export system with templates, bulk operations, progress tracking."
+        - working: true
+          agent: "testing"
+          comment: "✅ IMPORT/EXPORT APIs WORKING: Comprehensive testing shows most functionality operational. CSV templates download correctly (GET /import-export/template/books, /import-export/template/users). Export endpoints working for books and loans (GET /import-export/books/export, /import-export/loans/export). Bulk import working (POST /users/bulk-import). Role-based permissions correctly enforced. Minor: Users export endpoint returns HTTP 500 but core import/export functionality operational."
+
 frontend:
   - task: "Authentication System (Login/Register/Protected Routes)"
     implemented: true
