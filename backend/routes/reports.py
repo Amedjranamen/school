@@ -6,6 +6,17 @@ from models import User
 from database import books_collection, loans_collection, users_collection
 from bson import ObjectId
 
+def convert_objectid_to_str(data):
+    """Convert ObjectId fields to strings for JSON serialization"""
+    if isinstance(data, list):
+        return [convert_objectid_to_str(item) for item in data]
+    elif isinstance(data, dict):
+        return {key: convert_objectid_to_str(value) for key, value in data.items()}
+    elif isinstance(data, ObjectId):
+        return str(data)
+    else:
+        return data
+
 router = APIRouter(prefix="/reports", tags=["reports"])
 
 @router.get("/dashboard-stats")
