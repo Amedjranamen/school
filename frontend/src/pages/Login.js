@@ -36,10 +36,10 @@ const Login = () => {
   };
 
   const demoAccounts = [
-    { email: 'admin@bibliotheque.fr', password: 'admin123', role: 'Administrateur', color: 'bg-red-100 text-red-800' },
-    { email: 'bibliothecaire@bibliotheque.fr', password: 'biblio123', role: 'Bibliothécaire', color: 'bg-blue-100 text-blue-800' },
-    { email: 'prof.martin@ecole.fr', password: 'prof123', role: 'Enseignant', color: 'bg-green-100 text-green-800' },
-    { email: 'eleve.sophie@ecole.fr', password: 'eleve123', role: 'Élève', color: 'bg-purple-100 text-purple-800' },
+    { email: 'admin', password: 'admin123', role: 'Administrateur', color: 'bg-red-100 text-red-800' },
+    { email: 'bibliothecaire', password: 'biblio123', role: 'Bibliothécaire', color: 'bg-blue-100 text-blue-800' },
+    { email: 'prof_martin', password: 'prof123', role: 'Enseignant', color: 'bg-green-100 text-green-800' },
+    { email: 'eleve_sophie', password: 'eleve123', role: 'Élève', color: 'bg-purple-100 text-purple-800' },
   ];
 
   const fillDemo = (demoEmail, demoPassword) => {
