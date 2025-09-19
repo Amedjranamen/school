@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       const response = await axios.post(`${API}/auth/login`, {
-        email,
+        username: email,  // Backend expects 'username' field
         password,
       });
 
