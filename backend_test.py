@@ -325,7 +325,7 @@ class LibraryAPITester:
                 "due_days": 14
             }
             
-            success, response = self.make_request("POST", "/loans", token=self.tokens["student1"], data=loan_data)
+            success, response = self.make_request("POST", "/loans/", token=self.tokens["student1"], data=loan_data)
             
             if not success:
                 self.log_result("Loans Create - Student (Should Fail)", False, f"Request failed: {response}")
