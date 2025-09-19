@@ -71,8 +71,8 @@ const Login = () => {
     }
   ];
 
-  const quickLogin = (email, password) => {
-    setEmail(email);
+  const quickLogin = (username, password) => {
+    setEmail(username);
     setPassword(password);
     setError('');
   };
