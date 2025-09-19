@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 from typing import List, Optional
-from ..auth import get_current_user, require_role
-from ..models import User, UserCreate, UserUpdate, UserInDB
-from ..database import users_collection
+from auth import get_current_user, require_role
+from models import User, UserCreate, UserUpdate, UserInDB
+from database import users_collection
 from passlib.context import CryptContext
 import uuid
 from datetime import datetime
