@@ -6,9 +6,9 @@ import csv
 import io
 import json
 import uuid
-from ..auth import get_current_user, require_role
-from ..models import User, BookCreate, UserCreate
-from ..database import books_collection, users_collection, loans_collection
+from auth import get_current_user, require_role
+from models import User, BookCreate, UserCreate
+from database import books_collection, users_collection, loans_collection
 from passlib.context import CryptContext
 
 router = APIRouter(prefix="/api/import-export", tags=["import-export"])
