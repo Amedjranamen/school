@@ -395,6 +395,9 @@ async def get_users_report(
     
     users_report = await users_collection.aggregate(pipeline).to_list(None)
     
+    # Convert ObjectIds to strings for JSON serialization
+    users_report = convert_objectid_to_str(users_report)
+    
     # Calculate summary statistics
     total_users = len(users_report)
     active_users = sum(1 for user in users_report if user["active"])
