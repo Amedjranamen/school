@@ -35,7 +35,7 @@ const Login = () => {
   const demoAccounts = [
     {
       role: 'Administrateur',
-      email: 'admin@ecole.fr',
+      username: 'admin',
       password: 'admin123',
       description: 'Accès complet à toutes les fonctionnalités',
       icon: Shield,
@@ -44,7 +44,7 @@ const Login = () => {
     },
     {
       role: 'Bibliothécaire',
-      email: 'bibliothecaire@ecole.fr',
+      username: 'bibliothecaire',
       password: 'biblio123',
       description: 'Gestion des livres, prêts et statistiques',
       icon: BookOpen,
@@ -53,7 +53,7 @@ const Login = () => {
     },
     {
       role: 'Enseignant',
-      email: 'prof.martin@ecole.fr',
+      username: 'prof_martin',
       password: 'prof123',
       description: 'Consultation et réservation de ressources',
       icon: Users,
@@ -62,7 +62,7 @@ const Login = () => {
     },
     {
       role: 'Élève',
-      email: 'eleve.sophie@ecole.fr',
+      username: 'eleve_sophie',
       password: 'eleve123',
       description: 'Catalogue et gestion des prêts personnels',
       icon: Users,
