@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Variables CSS pour les couleurs */
+/* Variables CSS pour les couleurs - Palette bleu subtile */
 :root {
   --background: 248 250 252; /* Gris très clair */
   --foreground: 51 65 85; /* Gris foncé pour le texte */
@@ -14,16 +14,16 @@
   --card-foreground: 51 65 85; /* Gris foncé pour le texte des cartes */
   --border: 226 232 240; /* Gris clair pour les bordures */
   --input: 226 232 240; /* Gris clair pour les inputs */
-  --primary: 30 64 175; /* Bleu nuit principal */
+  --primary: 59 130 246; /* Bleu plus doux (blue-500) */
   --primary-foreground: 255 255 255; /* Blanc pour le texte sur primary */
-  --secondary: 96 165 250; /* Bleu clair secondaire */
-  --secondary-foreground: 255 255 255; /* Blanc pour le texte sur secondary */
-  --accent: 22 163 74; /* Vert pour les accents */
+  --secondary: 147 197 253; /* Bleu très clair (blue-300) */
+  --secondary-foreground: 30 58 138; /* Bleu foncé pour le texte sur secondary */
+  --accent: 16 185 129; /* Vert émeraude subtil */
   --accent-foreground: 255 255 255; /* Blanc pour le texte sur accent */
-  --destructive: 220 38 38; /* Rouge pour les actions destructives */
+  --destructive: 239 68 68; /* Rouge plus doux */
   --destructive-foreground: 255 255 255; /* Blanc pour le texte sur destructive */
-  --ring: 30 64 175; /* Bleu nuit pour les focus rings */
-  --radius: 8px; /* Radius par défaut */
+  --ring: 59 130 246; /* Bleu doux pour les focus rings */
+  --radius: 12px; /* Radius plus doux */
 }
 
 html {
