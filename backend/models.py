@@ -114,7 +114,12 @@ class Reservation(ReservationBase):
     status: Literal["waiting", "available", "cancelled", "fulfilled"] = "waiting"
     notified_at: Optional[datetime] = None
 
-# Response Models
+# Response Models for API
+class UserInDB(UserBase):
+    id: str
+    created_at: datetime
+    updated_at: Optional[datetime] = None
+
 class UserResponse(BaseModel):
     id: str
     username: str
