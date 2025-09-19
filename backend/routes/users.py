@@ -7,7 +7,7 @@ from passlib.context import CryptContext
 import uuid
 from datetime import datetime
 
-router = APIRouter(prefix="/api/users", tags=["users"])
+router = APIRouter(prefix="/users", tags=["users"])
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 @router.get("/", response_model=List[UserInDB])
