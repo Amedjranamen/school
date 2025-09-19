@@ -2,126 +2,256 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom CSS variables for consistent theming */
+/* Variables CSS pour les couleurs */
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-  --primary: 221.2 83.2% 53.3%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 98%;
-  --secondary-foreground: 222.2 84% 4.9%;
-  --muted: 210 40% 98%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: 210 40% 98%;
-  --accent-foreground: 222.2 84% 4.9%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 221.2 83.2% 53.3%;
-  --radius: 0.5rem;
+  --background: 248 250 252; /* Gris très clair */
+  --foreground: 51 65 85; /* Gris foncé pour le texte */
+  --muted: 241 245 249; /* Gris clair pour les fonds */
+  --muted-foreground: 100 116 139; /* Gris moyen pour le texte secondaire */
+  --popover: 255 255 255; /* Blanc pour les popovers */
+  --popover-foreground: 51 65 85; /* Gris foncé pour le texte des popovers */
+  --card: 255 255 255; /* Blanc pour les cartes */
+  --card-foreground: 51 65 85; /* Gris foncé pour le texte des cartes */
+  --border: 226 232 240; /* Gris clair pour les bordures */
+  --input: 226 232 240; /* Gris clair pour les inputs */
+  --primary: 30 64 175; /* Bleu nuit principal */
+  --primary-foreground: 255 255 255; /* Blanc pour le texte sur primary */
+  --secondary: 96 165 250; /* Bleu clair secondaire */
+  --secondary-foreground: 255 255 255; /* Blanc pour le texte sur secondary */
+  --accent: 22 163 74; /* Vert pour les accents */
+  --accent-foreground: 255 255 255; /* Blanc pour le texte sur accent */
+  --destructive: 220 38 38; /* Rouge pour les actions destructives */
+  --destructive-foreground: 255 255 255; /* Blanc pour le texte sur destructive */
+  --ring: 30 64 175; /* Bleu nuit pour les focus rings */
+  --radius: 8px; /* Radius par défaut */
 }
 
-.dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 217.2 91.2% 59.8%;
-  --primary-foreground: 222.2 84% 4.9%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 224.3 76.3% 94.1%;
-}
-
-* {
-  border-color: hsl(var(--border));
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-feature-settings: "rlig" 1, "calt" 1;
 }
 
-/* Custom utility classes */
-@layer utilities {
-  .line-clamp-2 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+/* Styles de base améliorés */
+@layer base {
+  * {
+    @apply border-border;
   }
   
-  .line-clamp-3 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+  
+  h1 {
+    @apply text-3xl lg:text-4xl;
+  }
+  
+  h2 {
+    @apply text-2xl lg:text-3xl;
+  }
+  
+  h3 {
+    @apply text-xl lg:text-2xl;
+  }
+  
+  /* Amélioration des focus states */
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2;
   }
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 8px;
+/* Composants personnalisés */
+@layer components {
+  /* Style pour les cartes avec effet hover */
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  /* Style pour les badges de statut */
+  .status-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .status-success {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .status-warning {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+  
+  .status-error {
+    @apply bg-red-100 text-red-800;
+  }
+  
+  .status-info {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  /* Styles pour les formulaires */
+  .form-group {
+    @apply space-y-2;
+  }
+  
+  .form-label {
+    @apply text-sm font-medium text-foreground;
+  }
+  
+  .form-input {
+    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  /* Animations personnalisées */
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .slide-in-up {
+    animation: slideInUp 0.3s ease-out;
+  }
+  
+  .bounce-in {
+    animation: bounceIn 0.5s ease-out;
+  }
+  
+  /* Styles pour les tableaux */
+  .table-container {
+    @apply overflow-x-auto border rounded-lg;
+  }
+  
+  /* Gradients personnalisés */
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--secondary)) 100%);
+  }
+  
+  /* Style pour les notifications toast */
+  .toast {
+    @apply bg-card border border-border text-card-foreground shadow-lg;
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: hsl(var(--muted));
+/* Utilitaires personnalisés */
+@layer utilities {
+  /* Tronquer le texte avec ellipsis */
+  .text-ellipsis {
+    @apply truncate;
+  }
+  
+  /* Centrage absolu */
+  .center-absolute {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  }
+  
+  /* Espacement cohérent */
+  .section-padding {
+    @apply px-4 py-6 sm:px-6 lg:px-8;
+  }
+  
+  /* Container responsive */
+  .container-responsive {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--border));
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground));
-}
-
-/* Animation for loading states */
-@keyframes pulse {
-  0%, 100% {
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
     opacity: 1;
   }
-  50% {
-    opacity: .5;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-/* Focus states for accessibility */
-.focus-visible\:outline-none:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
+/* Styles pour les scrollbars personnalisées */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
 
-.focus-visible\:ring-2:focus-visible {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 3px;
 }
 
-/* Smooth transitions */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Amélioration des transitions globales */
 * {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+/* Styles pour les focus states améliorés */
+.focus-visible {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .card {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
 }
