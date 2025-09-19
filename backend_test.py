@@ -218,7 +218,7 @@ class LibraryAPITester:
         if "student1" in self.tokens:
             student_book = test_book.copy()
             student_book["title"] = "Student Test Book"
-            success, response = self.make_request("POST", "/books", token=self.tokens["student1"], data=student_book)
+            success, response = self.make_request("POST", "/books/", token=self.tokens["student1"], data=student_book)
             
             if not success:
                 self.log_result("Books Create - Student (Should Fail)", False, f"Request failed: {response}")
