@@ -184,7 +184,7 @@ const Login = () => {
               <Card 
                 key={index} 
                 className="cursor-pointer transition-all duration-200 hover:shadow-md hover:scale-[1.01] border border-gray-200"
-                onClick={() => quickLogin(account.email, account.password)}
+                onClick={() => quickLogin(account.username, account.password)}
               >
                 <CardContent className="p-4">
                   <div className="flex items-center space-x-4">
