@@ -60,6 +60,7 @@ async def get_dashboard_stats(
     ]
     
     popular_books = await loans_collection.aggregate(popular_books_pipeline).to_list(5)
+    popular_books = convert_objectid_to_str(popular_books)
     
     # Recent activity (last 10 loans)
     recent_loans_pipeline = [
@@ -90,6 +91,7 @@ async def get_dashboard_stats(
     ]
     
     recent_activity = await loans_collection.aggregate(recent_loans_pipeline).to_list(10)
+    recent_activity = convert_objectid_to_str(recent_activity)
     
     # Monthly loan statistics (last 6 months)
     six_months_ago = datetime.utcnow() - timedelta(days=180)
@@ -119,6 +121,7 @@ async def get_dashboard_stats(
     ]
     
     monthly_stats = await loans_collection.aggregate(monthly_stats_pipeline).to_list(6)
+    monthly_stats = convert_objectid_to_str(monthly_stats)
     
     return {
         "overview": {
