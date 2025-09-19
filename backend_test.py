@@ -825,6 +825,15 @@ class LibraryAPITester:
         """Clean up test data created during testing"""
         print("=== CLEANING UP TEST DATA ===")
         
+        # Delete created users (only if we have admin access)
+        if "admin" in self.tokens and hasattr(self, 'created_users'):
+            for user_id in self.created_users:
+                success, response = self.make_request("DELETE", f"/users/{user_id}", token=self.tokens["admin"])
+                if success and response.status_code == 200:
+                    self.log_result(f"Cleanup - Delete User {user_id}", True, "User deleted successfully")
+                else:
+                    self.log_result(f"Cleanup - Delete User {user_id}", False, f"Failed to delete user: {response.status_code if success else 'request failed'}")
+        
         # Delete created books (only if we have admin access)
         if "admin" in self.tokens:
             for book_id in self.created_books:
