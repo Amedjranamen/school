@@ -336,7 +336,7 @@ class LibraryAPITester:
 
         # Test GET /loans (list loans)
         for role, token in self.tokens.items():
-            success, response = self.make_request("GET", "/loans", token=token)
+            success, response = self.make_request("GET", "/loans/", token=token)
             
             if not success:
                 self.log_result(f"Loans List - {role}", False, f"Request failed: {response}")
