@@ -367,7 +367,9 @@ test_plan:
     - "Statistics and Reports Interface" 
     - "Admin Import/Export Interface"
     - "Enhanced UI and Modern Design"
-  stuck_tasks: []
+    - "Frontend Demo Accounts Display Fix"
+  stuck_tasks: 
+    - "Reports and Statistics API"
   test_all: false
   test_priority: "high_first"
 
