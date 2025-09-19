@@ -13,7 +13,7 @@ from typing import Dict, Optional
 # Configuration
 BASE_URL = "https://libraryhub-11.preview.emergentagent.com/api"
 
-# Test accounts as specified in the requirements
+# Test accounts with CORRECT usernames (not emails)
 TEST_ACCOUNTS = {
     "admin": {"username": "admin", "password": "admin123"},
     "librarian": {"username": "bibliothecaire", "password": "biblio123"},
