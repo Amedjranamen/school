@@ -296,6 +296,9 @@ async def get_books_report(
     
     books_report = await books_collection.aggregate(pipeline).to_list(None)
     
+    # Convert ObjectIds to strings for JSON serialization
+    books_report = convert_objectid_to_str(books_report)
+    
     # Calculate summary statistics
     total_books = len(books_report)
     total_copies = sum(book["total_copies"] for book in books_report)
