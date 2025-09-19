@@ -6,7 +6,7 @@ from models import User
 from database import books_collection, loans_collection, users_collection
 from bson import ObjectId
 
-router = APIRouter(prefix="/api/reports", tags=["reports"])
+router = APIRouter(prefix="/reports", tags=["reports"])
 
 @router.get("/dashboard-stats")
 async def get_dashboard_stats(
