@@ -6,7 +6,7 @@ Comprehensive authentication test to verify the exact issue with demo accounts
 import requests
 import json
 
-BASE_URL = "https://libraryhub-11.preview.emergentagent.com/api"
+BASE_URL = "https://biblioschool-1.preview.emergentagent.com/api"
 
 def test_comprehensive_auth():
     print("🔍 COMPREHENSIVE AUTHENTICATION ANALYSIS")

@@ -6,7 +6,7 @@ Debug authentication issues with demo accounts
 import requests
 import json
 
-BASE_URL = "https://libraryhub-11.preview.emergentagent.com/api"
+BASE_URL = "https://biblioschool-1.preview.emergentagent.com/api"
 
 # Test accounts from seed_data.py
 DEMO_ACCOUNTS = [
