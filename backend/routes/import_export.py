@@ -11,7 +11,7 @@ from models import User, BookCreate, UserCreate
 from database import books_collection, users_collection, loans_collection
 from passlib.context import CryptContext
 
-router = APIRouter(prefix="/api/import-export", tags=["import-export"])
+router = APIRouter(prefix="/import-export", tags=["import-export"])
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 @router.post("/books/import")
