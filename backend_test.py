@@ -446,7 +446,7 @@ class LibraryAPITester:
                     user_id = user_data["id"]
                     
                     # Get available books
-                    success, response = self.make_request("GET", "/books", token=self.tokens["admin"], params={"available": True})
+                    success, response = self.make_request("GET", "/books/", token=self.tokens["admin"], params={"available": True})
                     if success and response.status_code == 200:
                         books = response.json()
                         if books:
