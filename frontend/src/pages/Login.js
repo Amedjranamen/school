@@ -108,12 +108,12 @@ const Login = () => {
                 
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-gray-700">
-                    Adresse email
+                    Nom d'utilisateur
                   </Label>
                   <Input
                     id="email"
-                    type="email"
-                    placeholder="votre.email@ecole.fr"
+                    type="text"
+                    placeholder="votre-nom-utilisateur"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
