@@ -11,7 +11,7 @@ from datetime import datetime
 from typing import Dict, Optional
 
 # Configuration
-BASE_URL = "https://bookflow-21.preview.emergentagent.com/api"
+BASE_URL = "https://libraflow.preview.emergentagent.com/api"
 
 # Test accounts as specified in the requirements
 TEST_ACCOUNTS = {
