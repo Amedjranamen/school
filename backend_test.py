@@ -418,7 +418,7 @@ class LibraryAPITester:
         
         # Test scenarios where students should be denied access
         restricted_endpoints = [
-            ("POST", "/books", {"title": "Test", "authors": ["Test"], "total_copies": 1}),
+            ("POST", "/books/", {"title": "Test", "authors": ["Test"], "total_copies": 1}),
         ]
         
         for method, endpoint, data in restricted_endpoints:
