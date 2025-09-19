@@ -246,9 +246,9 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Authentication JWT + User Roles System"  
-    - "Books CRUD API Endpoints"
-    - "Loans/Returns API Endpoints"
+    - "Frontend Authentication System"
+    - "Frontend Books Management Interface"
+    - "Frontend Loans Management Interface"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
