@@ -63,8 +63,9 @@ export const AuthProvider = ({ children }) => {
       const { access_token, user: userData } = response.data;
       
       localStorage.setItem('token', access_token);
-      setToken(access_token);
       setUser(userData);
+      setToken(access_token);
+      setLoading(false); // Important: set loading to false immediately after successful login
       
       return { success: true };
     } catch (error) {
