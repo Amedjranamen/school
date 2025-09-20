@@ -11,7 +11,7 @@ from datetime import datetime
 from typing import Dict, Optional
 
 # Configuration
-BASE_URL = "https://biblioschool-1.preview.emergentagent.com/api"
+BASE_URL = "https://biblioschool-2.preview.emergentagent.com/api"
 
 # Test accounts with CORRECT usernames (not emails)
 TEST_ACCOUNTS = {

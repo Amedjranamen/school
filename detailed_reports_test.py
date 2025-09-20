@@ -9,7 +9,7 @@ import json
 from datetime import datetime
 
 # Configuration
-BASE_URL = "https://biblioschool-1.preview.emergentagent.com/api"
+BASE_URL = "https://biblioschool-2.preview.emergentagent.com/api"
 
 # Test credentials
 ADMIN_CREDENTIALS = {"username": "admin", "password": "admin123"}
