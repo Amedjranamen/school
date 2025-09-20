@@ -18,7 +18,6 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(localStorage.getItem('token'));
-  const [skipInitialLoad, setSkipInitialLoad] = useState(false);
 
   // Configure axios defaults
   useEffect(() => {
@@ -37,29 +36,22 @@ export const AuthProvider = ({ children }) => {
         return;
       }
 
-      // Skip loading if we just logged in
-      if (skipInitialLoad) {
-        setSkipInitialLoad(false);
-        setLoading(false);
-        return;
-      }
-
       try {
         const response = await axios.get(`${API}/auth/me`);
         setUser(response.data);
+        setLoading(false);
       } catch (error) {
         console.error('Failed to load user:', error);
         // Invalid token, clear it
         localStorage.removeItem('token');
         setToken(null);
         setUser(null);
-      } finally {
         setLoading(false);
       }
     };
 
     loadUser();
-  }, [token, skipInitialLoad]);
+  }, [token]);
 
   const login = async (email, password) => {
     try {
@@ -71,10 +63,9 @@ export const AuthProvider = ({ children }) => {
       const { access_token, user: userData } = response.data;
       
       localStorage.setItem('token', access_token);
-      setUser(userData);
-      setSkipInitialLoad(true); // Flag to skip useEffect reload
       setToken(access_token);
-      setLoading(false); // Important: set loading to false immediately after successful login
+      setUser(userData);
+      setLoading(false);
       
       return { success: true };
     } catch (error) {
