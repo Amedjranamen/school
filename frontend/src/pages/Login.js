@@ -23,10 +23,14 @@ const Login = () => {
     setLoading(true);
 
     try {
-      await login(email, password);
-      navigate('/dashboard');
+      const result = await login(email, password);
+      if (result.success) {
+        navigate('/dashboard');
+      } else {
+        setError(result.error || 'Nom d\'utilisateur ou mot de passe incorrect');
+      }
     } catch (err) {
-      setError('Nom d\'utilisateur ou mot de passe incorrect');
+      setError('Erreur de connexion');
     } finally {
       setLoading(false);
     }
