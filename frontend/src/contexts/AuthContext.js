@@ -18,6 +18,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(localStorage.getItem('token'));
+  const [skipInitialLoad, setSkipInitialLoad] = useState(false);
 
   // Configure axios defaults
   useEffect(() => {
@@ -36,8 +37,9 @@ export const AuthProvider = ({ children }) => {
         return;
       }
 
-      // Skip loading if user is already set (from login)
-      if (user) {
+      // Skip loading if we just logged in
+      if (skipInitialLoad) {
+        setSkipInitialLoad(false);
         setLoading(false);
         return;
       }
@@ -57,7 +59,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     loadUser();
-  }, [token, user]);
+  }, [token, skipInitialLoad]);
 
   const login = async (email, password) => {
     try {
@@ -70,6 +72,7 @@ export const AuthProvider = ({ children }) => {
       
       localStorage.setItem('token', access_token);
       setUser(userData);
+      setSkipInitialLoad(true); // Flag to skip useEffect reload
       setToken(access_token);
       setLoading(false); // Important: set loading to false immediately after successful login
       
