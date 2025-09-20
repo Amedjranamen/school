@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Login</title>
+</head>
+<body>
+    <h1>Test de connexion direct</h1>
+    <div id="result"></div>
+    
+    <script>
+        async function testLogin() {
+            const result = document.getElementById('result');
+            
+            try {
+                const response = await fetch('https://biblioschool-2.preview.emergentagent.com/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: 'admin',
+                        password: 'admin123'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    result.innerHTML = `<p style="color: green;">✅ Connexion réussie!</p>
+                                      <p>Token: ${data.access_token.substring(0, 50)}...</p>
+                                      <p>User: ${data.user.full_name} (${data.user.role})</p>`;
+                } else {
+                    result.innerHTML = `<p style="color: red;">❌ Échec: ${data.detail}</p>`;
+                }
+                
+            } catch (error) {
+                result.innerHTML = `<p style="color: red;">❌ Erreur: ${error.message}</p>`;
+            }
+        }
+        
+        // Test automatique au chargement
+        testLogin();
+    </script>
+</body>
+</html>
