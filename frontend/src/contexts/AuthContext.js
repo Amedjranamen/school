@@ -36,6 +36,12 @@ export const AuthProvider = ({ children }) => {
         return;
       }
 
+      // Skip loading if user is already set (from login)
+      if (user) {
+        setLoading(false);
+        return;
+      }
+
       try {
         const response = await axios.get(`${API}/auth/me`);
         setUser(response.data);
